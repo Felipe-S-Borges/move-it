@@ -1,23 +1,30 @@
+import { useContext } from 'react';
+import {ChallengesContext} from '../contesxts/ChallengesContext'
 import styles from '../styles/components/Desafio.module.css';
 
 export function Desafio(){
-    const hasActiveChalenge = true;
-
+    const {activeChallenge, resetChallenge} = useContext(ChallengesContext);
+    
+    console.log(activeChallenge);
+    
     return(
         <div className={styles.desafioContainer}>
-        {hasActiveChalenge ? (
+        {activeChallenge ? (
 
             <div className={styles.desafioActivated}> 
-                <header> Ganhe 400 xp</header>
+                <header> Ganhe {activeChallenge.amount} xp</header>
                 <main>
-                    <img src="icons/body.svg" />
+                    <img src={`icons/${activeChallenge.type}.svg`} />
                     <strong>Novo desafio</strong>
-                    <p>Levante e faça uma caminhada de três minutos</p>
+                    <p>{activeChallenge.description}</p>
                 </main>
                 <footer>
                     <button 
                         type="button" 
-                        className={styles.desafioFalhei}>
+                        className={styles.desafioFalhei}
+                        onClick={resetChallenge}
+                        >
+                        
                         Falhei
                     </button>
                     <button 

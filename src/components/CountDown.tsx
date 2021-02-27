@@ -1,12 +1,12 @@
 import { useState, useEffect, useContext } from 'react';
-import { desafioContext } from '../contesxts/desafioContext';
+import { ChallengesContext } from '../contesxts/ChallengesContext';
 
 import styles from '../styles/components/CountDown.module.css';
 
 
 
 export function CountDown(){
-    const {startNewChallenge} = useContext(desafioContext);
+    const {startNewChallenge} = useContext(ChallengesContext);
     const [time,setTime] = useState(0.1 * 60);
     const minutos = Math.floor(time / 60);
     const segundos = time % 60;

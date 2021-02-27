@@ -1,14 +1,14 @@
 
 import '../styles/global.css';
-import {desafioProvider} from '../contesxts/desafioContext';
+import {ChallengesProvider} from '../contesxts/ChallengesContext';
 
 function MyApp({ Component, pageProps }) {
   return (
-  <desafioProvider>
+  <ChallengesProvider>
   
       <Component {...pageProps} />
   
-  </desafioProvider>
+  </ChallengesProvider>
   )
 }
 
