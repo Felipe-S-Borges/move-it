@@ -6,6 +6,7 @@ import { Profile } from '../components/Profile';
 import {Desafio} from '../components/Desafio';
 import styles from '../styles/pages/Home.module.css';
 import Head from 'next/head';
+import { CountDownProvider } from '../contesxts/CountDownContext';
 
 
 export default function Home() {
@@ -17,6 +18,7 @@ export default function Home() {
       
     </Head>
     <Experience />
+    <CountDownProvider>
     <section>
       <div>
 
@@ -30,7 +32,7 @@ export default function Home() {
 
       </div>
     </section>
-    
+    </CountDownProvider>
     </div>
   )
 }
